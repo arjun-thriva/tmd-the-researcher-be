@@ -1,5 +1,6 @@
 require 'sinatra'
 
-get '/' do
-  'Hello world!'
+get 'participants/:participant-id/summary' do
+  include_results = params['results']
+
 end
