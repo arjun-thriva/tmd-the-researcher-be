@@ -32,7 +32,13 @@ class OrderFetcher
     @logger.debug("HTTP Response Body: #{response.body}")
   
     parsed_response = JSON.parse(response.read_body)
-    order_ids = parsed_response["data"].map { |order| order["id"] }
-    order_ids
+    orders_with_postcode = parsed_response["data"].map do |order|
+      {
+        id: order["id"],
+        postcode: order.dig("attributes", "delivery_address", "postcode")
+      }
+    end
+  
+    orders_with_postcode
   end
 end

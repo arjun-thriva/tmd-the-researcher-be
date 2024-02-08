@@ -12,8 +12,8 @@ ORDER_FETCHER = OrderFetcher.new(client_id, client_secret)
 
 get '/fetch_orders' do
   # Example start and end dates
-  start_date = "2022-12-30"
-  end_date = "2023-01-12"
+  start_date = "2023-08-08"
+  end_date = "2024-12-12"
 
   # Fetch the orders
   order_ids = ORDER_FETCHER.fetch_orders(start_date, end_date)
